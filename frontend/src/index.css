@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+  
+  .card_v{  
+    width: 100%;
+    height: 148px;
+    position: relative;
+  }
+
+  .card_overlay{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.2;
+    display: none;
+    /* z-index: 1; */
+    /* cursor: pointer; */
+  }
+  .card_icon {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    display: none;
+  }
+  .card_v:hover .card_overlay, .card_v:hover .card_icon {
+    display: block;
+   }
+  
+  .imgRes{
+    max-height: 80px;
+    max-width: 80px;
+    height: auto;
+    width: auto;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .download_icon{
+    background-color: #68bf47;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .share_icon{
+    background-color: 	white;
+    margin-left: 10px;
+    color:black;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+  
