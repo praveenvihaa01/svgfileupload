@@ -19,10 +19,9 @@ const RegisterUser = ({baseUrl}) => {
         if (localStorage.getItem('token-Svg')) {
             navigate('/admin-dashboard')
         } else {
-
             getRole()
         }
-    })
+    },[])
 
     const getRole = () => {
         var requestOptions = {

@@ -5,6 +5,7 @@ import { MdDownload, MdShare } from 'react-icons/md';
 // import img from '../../public/images/'
 import { saveAs } from 'file-saver'
 import '../index.css'
+import AdComponent from '../AdComponent';
 
 const HeaderSec = ({ searchData, baseUrl }) => {
 
@@ -67,12 +68,13 @@ const HeaderSec = ({ searchData, baseUrl }) => {
     return (
         <>
             <Header>
+            {/* <AdComponent/> */}
                 <StyledLeftDiv style={{ display: 'block' }} id='leftSide'>
-
+                    <AdComponent/>
                 </StyledLeftDiv>
 
                 <Container >
-                    <Row md={4} lg={5} sm={3} xs={1} style={{ rowGap: '2rem' }}>
+                    <Row md={4} lg={5} sm={3} xs={2} style={{ rowGap: '2rem' }}>
                         {
                             filterImage.map((val, index) => {
                             return (
@@ -81,7 +83,7 @@ const HeaderSec = ({ searchData, baseUrl }) => {
                                         <div className='card_overlay'></div>
                                         <Card.Img className='imgRes' src={'./images/' + val.imageName} />
                                         <div className='card_icon'>
-                                            <MdDownload className='download_icon' onClick={() => downloadImage('./images/' + val.file_src, val.file_src)} />
+                                            <MdDownload className='download_icon' onClick={() => downloadImage('./images/' + val.imageName, val.imageName)} />
                                             <MdShare className='share_icon' onClick={() => share()} />
                                         </div>
                                     </Card>

@@ -10,6 +10,7 @@ import ContributedSvgsList from "./admin/component/ContributedSvgsList";
 import RegisterUser from "./component/RegisterUser";
 import LoginUser from "./page/LoginUser";
 import AuthUser from "./AuthUser";
+import AdComponent from "./AdComponent";
 // import LoginAd from "./admin/component/LoginAd";
 
 function App() {
@@ -18,21 +19,22 @@ function App() {
 
   return (
     <>
-        <Routes>
+        {/* <Routes> */}
           {/* user */}
-          <Route path='/user-register' element={<RegisterUser baseUrl={baseUrl}/>}/>
+          {/* <Route path='/user-register' element={<RegisterUser baseUrl={baseUrl}/>}/>
           <Route path='/user-login' element={<LoginUser/>}/>
-          <Route path='/' element={<LendingPage baseUrl={baseUrl} />}/>
+          <Route path='/' element={<LendingPage baseUrl={baseUrl} />}/> */}
         
 
           {/* Admin */}
           {/* <Route path='/admin-login' element={<LoginAd/>}/> */}
-            <Route path='/admin-register' element={<RegisterAd/>}/>
+            {/* <Route path='/admin-register' element={<RegisterAd/>}/>
             <Route path='/admin-dashboard' element={< AuthUser cmp={Dashboard} baseUrl={baseUrl}/>}/>
             <Route path='/admin-dashboard/svgslist' element={<AuthUser cmp={SvgsList} baseUrl={baseUrl}/>}/>
             <Route path='/admin-dashboard/contributedSvgslist' element={<AuthUser cmp={ContributedSvgsList} />}/>
         </Routes>
-        
+         */}
+         <AdComponent/>
     </>
   );
 }
