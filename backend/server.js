@@ -74,22 +74,31 @@ app.post('/showRole', (req, res) => {
 
 app.post('/imageShow', (req, res) => {
 
-    const { page, pageData, searchData } = req.body
-    const showTotalData = page * pageData
+    const { page, pageData, searchImageValue } = req.body
+    const showTotalData = page * pageData;
 
-    if (searchData) {
-        db.query(
-            `SELECT * FROM images WHERE imageName LIKE '%${searchData}%'`,
-            (err, result) => {
-                return res.json(result);
-            })
-    } else {
-        db.query(
-            `SELECT * FROM images LIMIT ${showTotalData}`,
-            (err, result) => {
-                return res.json(result);
-            })
+    var searchQuesry = "SELECT * FROM images";
+    if (searchImageValue) {
+        searchQuesry = searchQuesry + ` where imageName LIKE '%${searchImageValue}%'`;
     }
+
+    if (pageData) {
+        searchQuesry = searchQuesry + ` LIMIT ${showTotalData}`;
+    }
+
+    // if(pageData && searchImageValue) {
+    //     searchQuesry = searchQuesry + ` where imageName LIKE '%${searchImageValue}%' AND LIMIT ${showTotalData}`;
+    
+    // }
+
+    // console.log(searchQuesry);
+
+    db.query(
+        searchQuesry,
+        (err, result) => {
+            return res.json(result);
+        })
+
 })
 
 app.post('/signUp', (req, res) => {
