@@ -1,7 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-import {Routes, Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import LendingPage from "./page/LendingPage";
 import Dashboard from "./admin/component/Dashboard";
 import SvgsList from "./admin/component/SvgsList";
@@ -19,22 +19,22 @@ function App() {
 
   return (
     <>
-        {/* <Routes> */}
-          {/* user */}
-          {/* <Route path='/user-register' element={<RegisterUser baseUrl={baseUrl}/>}/>
+      <Routes>
+      {/* user */}
+      <Route path='/user-register' element={<RegisterUser baseUrl={baseUrl}/>}/>
           <Route path='/user-login' element={<LoginUser/>}/>
-          <Route path='/' element={<LendingPage baseUrl={baseUrl} />}/> */}
-        
+          <Route path='/' element={<LendingPage baseUrl={baseUrl} />}/>
 
-          {/* Admin */}
-          {/* <Route path='/admin-login' element={<LoginAd/>}/> */}
-            {/* <Route path='/admin-register' element={<RegisterAd/>}/>
+
+      {/* Admin */}
+      {/* <Route path='/admin-login' element={<LoginAd/>}/> */}
+      <Route path='/admin-register' element={<RegisterAd/>}/>
             <Route path='/admin-dashboard' element={< AuthUser cmp={Dashboard} baseUrl={baseUrl}/>}/>
             <Route path='/admin-dashboard/svgslist' element={<AuthUser cmp={SvgsList} baseUrl={baseUrl}/>}/>
             <Route path='/admin-dashboard/contributedSvgslist' element={<AuthUser cmp={ContributedSvgsList} />}/>
         </Routes>
-         */}
-         <AdComponent/>
+        
+      {/* <AdComponent slot="9753906753" timeout={1000}/> */}
     </>
   );
 }

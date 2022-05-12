@@ -1,50 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class AdComponent extends React.Component {
+const googleAdId = 'ca-pub-4513666647383140';
+
+class AdComponent extends Component {
+    googleInit = null;
+
     componentDidMount() {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        const { timeout } = this.props;
+        this.googleInit = setTimeout(() => {
+            if (typeof window !== 'undefined')
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+        }, timeout);
+    }
+
+    componentWillUnmount() {
+        if (this.googleInit) clearTimeout(this.googleInit);
     }
 
     render() {
+        const { slot } = this.props;
         return (
-
-            <ins class="adsbygoogle"
-                style={{ display: "inline-block", width: "728px", height: "90px" }}
-                data-ad-client="ca-pub-4513666647383140"
-                data-ad-slot="1152527856"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
+            <div>
+                <ins
+                    className="adsbygoogle"
+                    style={{ display: 'block' }}
+                    data-ad-client={googleAdId}
+                    data-ad-slot={slot}
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"
+                    data-adtest="on"
+                ></ins>
+            </div>
         );
     }
 }
 
-{/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4513666647383140"
-     crossorigin="anonymous"></script>
+AdComponent.propTypes = {
+    classNames: PropTypes.string,
+    slot: PropTypes.string,
+    timeout: PropTypes.number,
+};
 
+AdComponent.defaultProps = {
+    classNames: '',
+    timeout: 200,
+};
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4513666647383140"
-     crossorigin="anonymous"></script>
-<!-- Right ads unit -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4513666647383140"
-     data-ad-slot="9753906753"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+export default AdComponent;
 
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4513666647383140"
-     crossorigin="anonymous"></script>
-<!-- Left Ads unit -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4513666647383140"
-     data-ad-slot="1152527856"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script> */}
